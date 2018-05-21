@@ -7,10 +7,9 @@ import { HomeComponent } from './components/home.component';
 import { ErrorComponent } from './components/error.component';
 
 const appRoutes: Routes =[
- {path: '', component: HomeComponent},//vacia
- {path: '**', component: ErrorComponent},//url no existente
- {path: 'home', component: HomeComponent}
- 
+ {path: '', component: HomeComponent},//vacia 
+ {path: 'home', component: HomeComponent},
+ {path: '**', component: ErrorComponent}//url no existente
 ];
 
 export const appRoutingProviders: any[] = [];
