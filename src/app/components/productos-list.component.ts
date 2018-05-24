@@ -4,6 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 //services
 import { ProductosService } from '../services/productos.service';
 
+
+//models
+import { Producto } from '../models/producto';
+
 @Component({
     selector: 'productos-list',
     templateUrl: '../views/productos-list.html',
@@ -14,6 +18,7 @@ import { ProductosService } from '../services/productos.service';
 export class ProductosListComponent{
 
     public titulo: string;
+    public productos: Producto[];   
 
     constructor(
         private _route: ActivatedRoute,
@@ -27,7 +32,19 @@ export class ProductosListComponent{
     ngOnInit(){
         console.log('productos-list.component.ts cargado');
         
-        alert(this._productoService.getProductos());
+        this._productoService.getProductos().subscribe(
+            result =>{               
+                if(result.code != 200){
+                    console.log(result);
+                }else{
+                    this.productos=result.data;//obtiene la data del response
+                }
+
+            },
+            error =>{
+                console.log(<any>error);
+            }
+        );
     }
 
 }
