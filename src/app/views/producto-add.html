@@ -4,17 +4,20 @@
 <form #formProducto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-producto">
 
    <label>Nombre</label>
-   <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" id="nombre" class="form-control"/>
+   <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">Es campo es requerido</span>
+   <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" id="nombre" class="form-control" required />
 
    <label>Descripcion</label>
-   <textarea #descriptcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" id="descripcion" class="form-control"></textarea>
+   <span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">Es campo es requerido</span>
+   <textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" id="descripcion" class="form-control" required></textarea>
 
    <label>Precio</label>
-   <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" id="precio" class="form-control"/>
+   <span *ngIf="!precio.valid && precio.touched" class="label label-danger">El campo es requerido y solo acepta numeros</span>
+   <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" id="precio" class="form-control" pattern="[0-9]+" required/>
 
    <label>Imagen</label>
    <input type="file"  id="imagen" class="form-control"/>
 
    <br>
-   <input type="submit" value="{{titulo}}" class="btn btn-success"/>
+   <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success"/>
 </form>
