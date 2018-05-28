@@ -1,19 +1,19 @@
 <h3>{{titulo}}</h3>
 <hr/>
 
-<form #formProducto="ngForm" class="col-lg-6" id="form-producto">
+<form #formProducto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-producto">
 
    <label>Nombre</label>
-   <input type="text" name="" id="nombre" class="form-control"/>
+   <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" id="nombre" class="form-control"/>
 
    <label>Descripcion</label>
-   <textarea name="" id="descripcion" class="form-control"></textarea>
+   <textarea #descriptcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" id="descripcion" class="form-control"></textarea>
 
    <label>Precio</label>
-   <input type="text" name="" id="precio" class="form-control"/>
+   <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" id="precio" class="form-control"/>
 
    <label>Imagen</label>
-   <input type="file" name="" id="imagen" class="form-control"/>
+   <input type="file"  id="imagen" class="form-control"/>
 
    <br>
    <input type="submit" value="{{titulo}}" class="btn btn-success"/>
