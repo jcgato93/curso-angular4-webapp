@@ -18,12 +18,19 @@ export class ProductosService {
    }
 
 
+   /**
+    * Retorna el listado de productos
+    */
    getProductos(){
      return this._http.get(this.url+'productos')
      .map(res => res.json());
    }
 
 
+   /**
+    * Añade un nuevo producto
+    * @param producto 
+    */
    addProducto(producto: Producto){
      let json= JSON.stringify(producto);
      let params = 'json='+json;
@@ -34,6 +41,12 @@ export class ProductosService {
    }
 
 
+   /**
+    * subir imagenes
+    * @param url 
+    * @param params 
+    * @param files 
+    */
    makeFileRequest(url: string, params: Array<string>, files: Array<File>){
      return new Promise((resolve, reject)=> {
         var formData: any = new FormData();
