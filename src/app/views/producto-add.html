@@ -16,7 +16,7 @@
    <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" id="precio" class="form-control" pattern="[0-9]+" required/>
 
    <label>Imagen</label>
-   <input type="file"  id="imagen" class="form-control"/>
+   <input type="file"  id="imagen" class="form-control" (change)="fileChangeEvent($event)"/>
 
    <br>
    <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success"/>
