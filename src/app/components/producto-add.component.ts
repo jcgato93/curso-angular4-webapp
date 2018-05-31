@@ -16,6 +16,10 @@ export class ProductoAddComponent{
     public titulo: string;
     public producto: Producto;
 
+    public filesToUpload=new Array<any>();
+    public resultUpload; 
+
+
     constructor(
         private _productoService: ProductosService,
         private _route: ActivatedRoute,
@@ -74,8 +78,7 @@ export class ProductoAddComponent{
 
 
 
-    public filesToUpload;
-    public resultUpload; 
+   
     /**
      * añade el archivo al array de filesToUpload
      * @param fileInput 
