@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home.component';
 import { ErrorComponent } from './components/error.component';
 import { ProductosListComponent } from './components/productos-list.component';
 import { ProductoAddComponent } from './components/producto-add.component';
+import { ProductoDetailComponent } from './components/producto-detail.component';
 
 const appRoutes: Routes =[
  {path: '', component: HomeComponent},//vacia 
  {path: 'home', component: HomeComponent},
  {path: 'productos', component: ProductosListComponent},
  {path: 'crear-producto', component: ProductoAddComponent},
+ {path: 'producto/:id', component: ProductoDetailComponent},
  {path: '**', component: ErrorComponent}//url no existente
 ];
 
