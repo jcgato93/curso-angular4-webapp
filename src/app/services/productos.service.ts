@@ -27,6 +27,11 @@ export class ProductosService {
    }
 
 
+   getProducto(id){
+     return this._http.get(this.url+'productos/'+id)
+                    .map(res => res.json());
+   }
+
    /**
     * Añade un nuevo producto
     * @param producto 
