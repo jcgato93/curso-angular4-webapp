@@ -56,6 +56,13 @@ export class ProductosService {
                         .map(res=> res.json());
    }
 
+
+  deleteProducto(id){
+    return this._http.get(this.url+'delete-producto/'+id)
+                    .map(res => res.json());
+  }
+
+
    /**
     * subir imagenes
     * @param url 
